@@ -18,10 +18,11 @@
     line-height:1.62;-webkit-font-smoothing:antialiased}
   .wrap{max-width:980px;margin:0 auto;padding:0 22px}
 
-  header{border-bottom:1px solid var(--line);padding:20px 0;background:var(--paper)}
+  header{border-bottom:1px solid var(--line);padding:22px 0;background:var(--paper)}
   .bar{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
-  .brand{font-weight:800;font-size:17px;letter-spacing:-.3px}
-  .brand span{color:var(--ink2);font-weight:500}
+  .brand{display:flex;align-items:center;gap:11px}
+  .brand img{height:34px;width:auto;display:block}
+  .brand span{color:var(--ink2);font-weight:600;font-size:15px;letter-spacing:.2px}
   .bar a{color:var(--sea);text-decoration:none;font-size:13px;font-weight:700}
 
   .hero{padding:56px 0 30px;border-bottom:1px solid var(--line)}
@@ -99,7 +100,7 @@
 <body>
 
 <header><div class="wrap bar">
-  <div class="brand">BBA <span>Technology</span></div>
+  <div class="brand"><img src="assets/logo.png" alt="BBA"><span>Technology</span></div>
   <a href="https://wa.me/905305974187">WhatsApp +90 530 597 41 87</a>
 </div></header>
 
@@ -115,6 +116,11 @@
   </div>
 
   <div class="row">
+    <div>
+    <div class="shot" style="margin-bottom:16px">
+      <img src="assets/flighthub.jpg" alt="Flight control and log analysis">
+      <div class="cap">Our own flight control and analysis platform, across the fleet</div>
+    </div>
     <div class="cat">
       <div class="cat-h">One survey flight in &middot; fifteen answers out</div>
       <div class="cat-g">
@@ -135,6 +141,7 @@
         <div class="cat-c"><div class="cat-t">Assets</div>
           <span>Beach asset inventory</span><span>Condition classification</span></div>
       </div>
+    </div>
     </div>
     <div class="body">
       <span class="tag t-live">01 · Dubai Municipality · in delivery</span>
@@ -237,8 +244,9 @@
 
 </div>
 
-<footer><div class="wrap">
-  BBA Technology &middot; İzmir, Türkiye &middot; NCAGE TN069 &middot; AI software, autonomous systems, computer vision
+<footer><div class="wrap" style="display:flex;align-items:center;gap:12px;flex-wrap:wrap">
+  <img src="assets/logo.png" alt="BBA" style="height:22px;opacity:.55">
+  <span>BBA Technology &middot; İzmir, Türkiye &middot; NCAGE TN069 &middot; AI software, autonomous systems, computer vision</span>
 </div></footer>
 
 </body>

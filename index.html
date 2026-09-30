@@ -74,6 +74,20 @@
   .reach{display:flex;flex-wrap:wrap;gap:8px 24px;margin-top:15px}
   .reach a{color:var(--sea);text-decoration:none;font-size:14px;font-weight:700}
 
+  .cat{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px;
+    box-shadow:0 8px 24px rgba(22,32,43,.07)}
+  .cat-h{font-size:13.5px;font-weight:800;color:var(--sea);margin-bottom:13px;letter-spacing:-.2px}
+  .cat-g{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .cat-c{background:#fbfaf7;border:1px solid var(--line);border-radius:7px;padding:10px 11px}
+  .cat-t{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.9px;
+    color:var(--ink2);margin-bottom:6px}
+  .cat-c span{display:block;font-size:11.5px;color:#5b6a79;line-height:1.55;padding-left:10px;
+    position:relative}
+  .cat-c span::before{content:"";position:absolute;left:0;top:8px;width:4px;height:4px;
+    border-radius:50%;background:var(--sea);opacity:.55}
+  .shot img + img{border-top:1px solid rgba(255,255,255,.08)}
+  @media(max-width:470px){.cat-g{grid-template-columns:1fr}}
+
   footer{padding:24px 0 40px;color:#7b8794;font-size:12.5px}
 
   @media(max-width:760px){
@@ -93,15 +107,34 @@
 
   <div class="hero">
     <h1>Software for municipalities.</h1>
-    <p>Three systems, built for two municipalities: coastal monitoring in Dubai, bay pollution
-    monitoring and excavation tracking in İzmir. <b>All of them turn imagery the municipality
-    already produces into a dated record it can be held to.</b></p>
+    <p><b>Any unmanned system, together with the fixed cameras already around it, kept in
+    continuous routine observation.</b> We control the aircraft, we process the imagery, and we
+    write the result into the reports the institution already has to produce.</p>
+    <p style="margin-top:12px">Three systems built on this, for two municipalities: coastal
+    monitoring in Dubai, bay pollution monitoring and excavation tracking in İzmir.</p>
   </div>
 
   <div class="row">
-    <div class="shot">
-      <img src="assets/coast.jpg" alt="Coastal survey flight">
-      <div class="cap">Coastal survey flight, our own analysis layer running on the feed</div>
+    <div class="cat">
+      <div class="cat-h">One survey flight in &middot; fifteen answers out</div>
+      <div class="cat-g">
+        <div class="cat-c"><div class="cat-t">Crowd</div>
+          <span>Visitors counted by zone</span><span>Density and hotspots</span>
+          <span>Safe-capacity breach</span></div>
+        <div class="cat-c"><div class="cat-t">Compliance</div>
+          <span>Vehicles in non-permitted areas</span><span>Unauthorised boats</span>
+          <span>Restricted-zone entry</span></div>
+        <div class="cat-c"><div class="cat-t">Environment</div>
+          <span>Litter hotspots</span><span>Water quality anomalies</span>
+          <span>Vegetation damage</span></div>
+        <div class="cat-c"><div class="cat-t">Shoreline</div>
+          <span>Shoreline position</span><span>Erosion between two dates</span>
+          <span>Sand movement</span></div>
+        <div class="cat-c"><div class="cat-t">Safety</div>
+          <span>Rip current risk</span><span>Swimmers in unsafe zones</span></div>
+        <div class="cat-c"><div class="cat-t">Assets</div>
+          <span>Beach asset inventory</span><span>Condition classification</span></div>
+      </div>
     </div>
     <div class="body">
       <span class="tag t-live">01 · Dubai Municipality · in delivery</span>
@@ -109,13 +142,6 @@
       <p>Two parts, plainly. We control the flight, and we read what comes back. One survey
       flight over the coast returns fifteen separate answers automatically, with a dated report
       at the end, running on the municipality's own servers.</p>
-      <ul>
-        <li>Visitor counting and density by zone, safe-capacity breach</li>
-        <li>Vehicles in non-permitted areas, unauthorised boats, restricted-zone entry</li>
-        <li>Litter hotspots, water quality anomalies, vegetation damage</li>
-        <li>Shoreline position and erosion between two dated surveys</li>
-        <li>Rip current risk, swimmers in unsafe zones</li>
-      </ul>
       <div class="note">Measured commitments agreed in the tender: people counting within
       &plusmn;10%, intrusion recall above 90%, fire above 85%, shoreline position within
       three metres.</div>
@@ -125,7 +151,8 @@
   <div class="row flip">
     <div class="shot">
       <img src="assets/bay.jpg" alt="Bay pollution monitoring screen">
-      <div class="cap">Bay monitoring: vessel picture from AIS, coastal cameras, risk list and incident log</div>
+      <img src="assets/coast.jpg" alt="Survey flight over the bay">
+      <div class="cap">The operating picture, and one of our own survey flights over the bay</div>
     </div>
     <div class="body">
       <span class="tag t-built">02 · İzmir Metropolitan Municipality · built</span>

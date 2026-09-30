@@ -1,151 +1,89 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="utf-8">
+<html lang="en">
+<head>
+<meta charset="utf-8">
 <meta name="robots" content="noindex, nofollow, noarchive">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>BBA Technology — Software for Municipalities</title>
-<meta name="description" content="Coastal monitoring for Dubai Municipality, bay pollution monitoring and excavation tracking for İzmir. On-premises, using imagery the municipality already produces.">
+<meta name="description" content="Coastal monitoring for Dubai Municipality, bay pollution monitoring and excavation tracking for İzmir. Runs on the institution's own servers.">
 <style>
   :root{
-    --bg:#070b12; --panel:#0c1220; --line:#1b2740; --text:#dbe6f5;
-    --muted:#7f92ad; --accent:#00d4ff; --green:#25e08a; --amber:#ffb347;
+    --paper:#f6f4ef; --card:#ffffff; --ink:#16202b; --ink2:#4d5d6d;
+    --line:#dcd6cb; --sea:#0e6a72; --seasoft:#e6f0f0;
+    --good:#2f7d4f; --goodsoft:#e7f1ea; --warm:#a8632a; --warmsoft:#f6ece2;
   }
   *{box-sizing:border-box;margin:0;padding:0}
-  body{background:var(--bg);color:var(--text);
+  body{background:var(--paper);color:var(--ink);
     font-family:"Inter","Segoe UI",-apple-system,Helvetica,Arial,sans-serif;
-    line-height:1.6;-webkit-font-smoothing:antialiased}
-  .wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+    line-height:1.62;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:980px;margin:0 auto;padding:0 22px}
 
-  header{border-bottom:1px solid var(--line);padding:18px 0;position:sticky;top:0;
-    background:rgba(7,11,18,.92);backdrop-filter:blur(8px);z-index:10}
+  header{border-bottom:1px solid var(--line);padding:20px 0;background:var(--paper)}
   .bar{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
   .brand{font-weight:800;font-size:17px;letter-spacing:-.3px}
-  .brand span{color:var(--muted);font-weight:500}
-  .bar a{color:var(--accent);text-decoration:none;font-size:13px;font-weight:600}
+  .brand span{color:var(--ink2);font-weight:500}
+  .bar a{color:var(--sea);text-decoration:none;font-size:13px;font-weight:700}
 
-  .hero{padding:58px 0 34px}
-  h1{font-size:clamp(26px,5vw,44px);line-height:1.12;letter-spacing:-1px;font-weight:800;
-    max-width:20ch}
-  .hero p{margin-top:16px;font-size:clamp(15px,2.2vw,18px);color:#b9c8dc;max-width:62ch}
-  .hero b{color:#fff}
+  .hero{padding:56px 0 30px;border-bottom:1px solid var(--line)}
+  h1{font-size:clamp(28px,5vw,44px);line-height:1.1;letter-spacing:-1.1px;font-weight:800;max-width:15ch}
+  .hero p{margin-top:18px;font-size:clamp(15px,2.2vw,18px);color:var(--ink2);max-width:60ch}
+  .hero b{color:var(--ink)}
 
-  h2{font-size:12px;text-transform:uppercase;letter-spacing:1.6px;color:var(--muted);
-    font-weight:700;margin-bottom:16px}
-  section{padding:34px 0;border-top:1px solid var(--line)}
-  .lead{font-size:clamp(18px,3vw,25px);font-weight:700;letter-spacing:-.4px;
-    line-height:1.3;max-width:28ch;margin-bottom:10px}
-  .sub{color:#a7b8ce;max-width:64ch}
+  .eyebrow{font-size:11.5px;text-transform:uppercase;letter-spacing:1.7px;color:var(--sea);
+    font-weight:800}
 
-  /* ---- partner band ---- */
-  .band{background:linear-gradient(135deg,#0d1728,#0a1120);border:1px solid #23406b;
-    border-radius:14px;padding:26px 24px;margin-top:20px}
-  .band .lead{max-width:30ch;margin-bottom:12px}
-  .band p{color:#a7b8ce;max-width:62ch}
-  .band p + p{margin-top:10px}
+  .row{display:grid;grid-template-columns:1.08fr 1fr;gap:30px;align-items:center;
+    padding:42px 0;border-bottom:1px solid var(--line)}
+  .row.flip .shot{order:2}
+  .shot{border-radius:10px;overflow:hidden;background:#0d1520;
+    box-shadow:0 10px 28px rgba(22,32,43,.13);border:1px solid rgba(22,32,43,.10)}
+  .shot img{width:100%;display:block}
+  .shot .cap{padding:10px 13px;font-size:11.5px;color:#93a3b4;background:#0d1520;
+    border-top:1px solid rgba(255,255,255,.07)}
+  .body h3{font-size:clamp(20px,2.9vw,26px);letter-spacing:-.6px;line-height:1.22;
+    margin-top:8px;font-weight:800}
+  .body p{color:var(--ink2);margin-top:11px;font-size:15px}
+  .body ul{margin-top:12px;padding-left:19px;color:var(--ink2);font-size:14.5px}
+  .body li{margin-top:5px}
+  .note{margin-top:13px;font-size:13px;color:#6b7a89;border-left:3px solid var(--seasoft);
+    padding-left:12px}
 
-  /* ---- product rows ---- */
-  .prod{display:grid;grid-template-columns:1.05fr 1fr;gap:26px;align-items:center;
-    padding:30px 0;border-top:1px solid var(--line)}
-  .prod:first-of-type{border-top:none}
-  .prod .media{background:var(--panel);border:1px solid var(--line);border-radius:11px;
-    overflow:hidden}
-  .prod .media img{width:100%;display:block;background:#000}
-  .prod .media video{width:100%;display:block;aspect-ratio:16/10;object-fit:cover;background:#000}
-  .prod .media svg{width:100%;display:block;background:#080d17}
-  .prod .media .note{padding:8px 12px;font-size:11.5px;color:var(--muted);
-    border-top:1px solid var(--line)}
-  .prod .body .num{font-size:11.5px;font-weight:800;color:var(--accent);
-    letter-spacing:1.4px;text-transform:uppercase}
-  .prod .body h3{font-size:clamp(18px,2.6vw,23px);letter-spacing:-.45px;line-height:1.25;
-    margin-top:6px;font-weight:800}
-  .prod .body p{color:#a7b8ce;margin-top:9px;font-size:14.8px}
-  .prod .body ul{margin-top:10px;padding-left:17px;color:#9fb2c9;font-size:14px}
-  .prod .body li{margin-top:4px}
-  .flip .media{order:2}
+  .tag{display:inline-block;font-size:10.5px;font-weight:800;letter-spacing:.9px;
+    text-transform:uppercase;padding:4px 10px;border-radius:20px;margin-bottom:4px}
+  .t-live{background:var(--goodsoft);color:var(--good)}
+  .t-built{background:var(--seasoft);color:var(--sea)}
 
-  .badge{display:inline-block;margin-top:12px;font-size:11px;font-weight:800;
-    letter-spacing:.8px;text-transform:uppercase;padding:4px 9px;border-radius:5px}
-  .b-live{background:rgba(37,224,138,.13);color:var(--green);border:1px solid rgba(37,224,138,.32)}
-  .b-dev{background:rgba(255,179,71,.12);color:var(--amber);border:1px solid rgba(255,179,71,.32)}
+  section{padding:42px 0;border-bottom:1px solid var(--line)}
+  h2{font-size:12px;text-transform:uppercase;letter-spacing:1.7px;color:var(--ink2);
+    font-weight:800;margin-bottom:14px}
+  .lead{font-size:clamp(19px,3vw,25px);font-weight:800;letter-spacing:-.5px;line-height:1.28;
+    max-width:26ch;margin-bottom:10px}
+  .sub{color:var(--ink2);max-width:62ch;font-size:15px}
 
-  .cat{padding:14px 14px 4px}
-  .cat-h{font-size:13px;font-weight:800;color:var(--accent);letter-spacing:-.2px;
-    margin-bottom:11px}
-  .cat-g{display:grid;grid-template-columns:1fr 1fr;gap:9px}
-  .cat-c{background:#080d17;border:1px solid var(--line);border-radius:7px;padding:9px 10px}
-  .cat-t{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.9px;
-    color:#9fb2c9;margin-bottom:5px}
-  .cat-c span{display:block;font-size:11.5px;color:#7f92ad;line-height:1.55;
-    padding-left:9px;position:relative}
-  .cat-c span::before{content:"";position:absolute;left:0;top:8px;width:3px;height:3px;
-    border-radius:50%;background:var(--green)}
-  @media(max-width:470px){.cat-g{grid-template-columns:1fr}}
+  .refs{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:14px;margin-top:8px}
+  .rf{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px 17px}
+  .rf .t{font-weight:800;font-size:14.5px;letter-spacing:-.2px}
+  .rf .d{font-size:13px;color:var(--ink2);margin-top:9px;line-height:1.5}
 
-  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:12px;margin-top:6px}
-  .card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:15px 16px}
-  .card .t{font-weight:700;font-size:15px;letter-spacing:-.2px}
-  .card .d{font-size:13.5px;color:#9fb2c9;margin-top:5px;line-height:1.5}
+  .cta{background:var(--card);border:1px solid var(--line);border-radius:14px;
+    padding:30px 28px;margin:42px 0 48px;box-shadow:0 8px 26px rgba(22,32,43,.07)}
+  .cta h3{font-size:clamp(20px,3vw,27px);letter-spacing:-.6px;line-height:1.25;max-width:22ch}
+  .cta p{color:var(--ink2);margin-top:11px;max-width:56ch}
+  .btn{display:inline-block;margin-top:18px;background:var(--sea);color:#fff;font-weight:800;
+    padding:13px 22px;border-radius:8px;text-decoration:none;font-size:15px}
+  .reach{display:flex;flex-wrap:wrap;gap:8px 24px;margin-top:15px}
+  .reach a{color:var(--sea);text-decoration:none;font-size:14px;font-weight:700}
 
-  .refs{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:14px;margin-top:6px}
-  .ref{border-left:2px solid var(--accent);padding-left:13px}
-  .ref .n{font-size:17px;font-weight:800;letter-spacing:-.4px;line-height:1.25}
-  .ref .l{font-size:13px;color:#9fb2c9;margin-top:5px;line-height:1.45}
-
-  .cta{background:linear-gradient(135deg,#0d1728,#0a1120);border:1px solid #23406b;
-    border-radius:14px;padding:26px 24px;margin:34px 0 40px}
-  .cta h3{font-size:clamp(19px,3vw,26px);letter-spacing:-.5px;line-height:1.25;max-width:26ch}
-  .cta p{color:#a7b8ce;margin-top:10px;max-width:58ch}
-  .btn{display:inline-block;margin-top:16px;background:var(--accent);color:#04121c;
-    font-weight:800;padding:12px 20px;border-radius:8px;text-decoration:none;font-size:15px}
-  .mail{display:block;margin-top:12px;color:var(--accent);text-decoration:none;
-    font-size:14px;font-weight:600;word-break:break-all}
-
-  .sum{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin-top:8px}
-  .sum-b{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px 17px}
-  .sum-t{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:1.1px;
-    color:var(--accent);margin-bottom:7px}
-  .sum-b p{font-size:13.5px;color:#a7b8ce;line-height:1.55}
-  .sum-l{margin:2px 0 0;padding-left:18px;font-size:13.5px;color:#a7b8ce;line-height:1.5}
-  .sum-l li{margin-top:3px}
-  .sum-l em{color:var(--amber);font-style:normal;font-size:12px;font-weight:700}
-
-  .reach{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:14px}
-  .reach a{color:var(--accent);text-decoration:none;font-size:14px;font-weight:600}
-
-  footer{border-top:1px solid var(--line);padding:22px 0 34px;color:var(--muted);font-size:12.5px}
-
-
+  footer{padding:24px 0 40px;color:#7b8794;font-size:12.5px}
 
   @media(max-width:760px){
-    .prod{grid-template-columns:1fr;gap:16px;padding:26px 0}
-    .flip .media{order:0}
+    .row{grid-template-columns:1fr;gap:18px;padding:32px 0}
+    .row.flip .shot{order:0}
   }
+</style>
+</head>
+<body>
 
-
-  .where{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-top:6px}
-  .w{background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:13px 14px}
-  .w .c{font-weight:800;font-size:14.5px;letter-spacing:-.2px}
-  .w .d{font-size:12px;color:var(--muted);margin-top:4px;line-height:1.45}
-
-  .sect{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px;margin-top:6px}
-  .s{background:var(--panel);border:1px solid var(--line);border-radius:11px;padding:18px 19px;
-     display:flex;flex-direction:column}
-  .s.lead-s{border-color:#23406b;background:linear-gradient(135deg,#0d1728,#0a1120)}
-  .s .n{font-size:11px;font-weight:800;letter-spacing:1.2px;text-transform:uppercase;color:var(--accent)}
-  .s h3{font-size:19px;letter-spacing:-.4px;margin-top:7px;font-weight:800;line-height:1.25}
-  .s p{font-size:13.5px;color:#a7b8ce;margin-top:8px;line-height:1.55}
-  .s ul{margin-top:9px;padding-left:17px;font-size:13px;color:#9fb2c9;line-height:1.5}
-  .s li{margin-top:3px}
-  .s .go{margin-top:auto;padding-top:13px}
-  .s .go a{color:var(--accent);text-decoration:none;font-size:13px;font-weight:700}
-
-  .refl{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:13px;margin-top:6px}
-  .rf{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:15px 16px}
-  .rf .t{font-weight:800;font-size:15px;letter-spacing:-.2px}
-  .rf .st{display:inline-block;margin-top:7px;font-size:10px;font-weight:800;letter-spacing:.7px;
-     text-transform:uppercase;padding:3px 8px;border-radius:4px;
-     background:rgba(37,224,138,.12);color:var(--green);border:1px solid rgba(37,224,138,.3)}
-  .rf .st.p{background:rgba(255,179,71,.11);color:var(--amber);border-color:rgba(255,179,71,.3)}
-  .rf .d{font-size:13px;color:#9fb2c9;margin-top:9px;line-height:1.5}</style></head><body>
 <header><div class="wrap bar">
   <div class="brand">BBA <span>Technology</span></div>
   <a href="https://wa.me/905305974187">WhatsApp +90 530 597 41 87</a>
@@ -160,88 +98,100 @@
     already produces into a dated record it can be held to.</b></p>
   </div>
 
-  <section>
-    <h2>01 · Dubai Municipality &mdash; in delivery</h2>
-    <div class="sect">
-      <div class="s lead-s"><div class="n">Coastal monitoring</div>
-        <h3>Drone control and image processing</h3>
-        <p>Two parts, plainly. We control the flight, and we read what comes back. A single
-        survey flight over the coast returns fifteen separate answers automatically, with a dated
-        report at the end, running on the municipality's own servers.</p>
-        <ul>
-          <li>Visitor counting and density by zone, safe-capacity breach</li>
-          <li>Vehicles in non-permitted areas, unauthorised boats, restricted-zone entry</li>
-          <li>Litter hotspots, water quality anomalies, vegetation damage</li>
-          <li>Shoreline position and erosion between two dated surveys</li>
-          <li>Rip current risk, swimmers in unsafe zones</li>
-          <li>Beach asset inventory and condition</li>
-        </ul>
-        <p style="font-size:12.5px;color:#7f92ad">Measured commitments agreed in the tender:
-        people counting within &plusmn;10%, intrusion recall above 90%, fire above 85%,
-        shoreline position within three metres.</p></div>
+  <div class="row">
+    <div class="shot">
+      <img src="assets/coast.jpg" alt="Coastal survey flight">
+      <div class="cap">Coastal survey flight, our own analysis layer running on the feed</div>
     </div>
-  </section>
+    <div class="body">
+      <span class="tag t-live">01 · Dubai Municipality · in delivery</span>
+      <h3>Drone control and image processing</h3>
+      <p>Two parts, plainly. We control the flight, and we read what comes back. One survey
+      flight over the coast returns fifteen separate answers automatically, with a dated report
+      at the end, running on the municipality's own servers.</p>
+      <ul>
+        <li>Visitor counting and density by zone, safe-capacity breach</li>
+        <li>Vehicles in non-permitted areas, unauthorised boats, restricted-zone entry</li>
+        <li>Litter hotspots, water quality anomalies, vegetation damage</li>
+        <li>Shoreline position and erosion between two dated surveys</li>
+        <li>Rip current risk, swimmers in unsafe zones</li>
+      </ul>
+      <div class="note">Measured commitments agreed in the tender: people counting within
+      &plusmn;10%, intrusion recall above 90%, fire above 85%, shoreline position within
+      three metres.</div>
+    </div>
+  </div>
+
+  <div class="row flip">
+    <div class="shot">
+      <img src="assets/bay.jpg" alt="Bay pollution monitoring screen">
+      <div class="cap">Bay monitoring: vessel picture from AIS, coastal cameras, risk list and incident log</div>
+    </div>
+    <div class="body">
+      <span class="tag t-built">02 · İzmir Metropolitan Municipality · built</span>
+      <h3>Bay pollution monitoring</h3>
+      <p>Every vessel in the bay tracked from AIS, every coastal camera watched for discharge and
+      surface anomaly. When something is released into the water, the system already knows which
+      vessels were there, at what speed, and what they were carrying.</p>
+      <ul>
+        <li>Live vessel picture from AIS with per-vessel risk scoring</li>
+        <li>Coastal cameras read automatically for vessels and surface anomalies</li>
+        <li>Incident log with time, location and evidence attached</li>
+        <li>Runs on the municipality's own servers</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="shot">
+      <img src="assets/road.jpg" alt="Road survey from above">
+      <div class="cap">Repeat imagery of the same street, compared between two dates</div>
+    </div>
+    <div class="body">
+      <span class="tag t-built">03 · İzmir Metropolitan Municipality · built</span>
+      <h3>Excavation tracking</h3>
+      <p>Water, gas and electricity open the same streets, and the record of who opened what,
+      when, and whether it was properly restored lives in a folder of photographs nobody can
+      search. We collect the imagery from three sources at once and measure the difference
+      between two dates.</p>
+      <ul>
+        <li><b>Fixed cameras</b> already installed along the routes</li>
+        <li><b>Drone flights</b> where the route and the permissions allow it</li>
+        <li><b>Field crews</b>, who install the application and upload photographs at the
+        excavation itself</li>
+      </ul>
+      <div class="note">New excavation detected and dated, restoration compared against the
+      condition before the work, and a record the coordination office can query.</div>
+      <p>The pipeline is not limited to excavation. With the same AI image processing and the
+      same interface, any structure or works the municipality is responsible for can be followed
+      the same way: roads, bridges, buildings, parks, shorelines. Anything with a before and an
+      after.</p>
+    </div>
+  </div>
 
   <section>
-    <h2>02 &amp; 03 · İzmir Metropolitan Municipality</h2>
-    <div class="sect">
-      <div class="s"><div class="n">Built</div>
-        <h3>Bay pollution monitoring</h3>
-        <p>Every vessel in the bay tracked from AIS, every coastal camera watched for discharge
-        and anomaly. When something is released into the water, the system already knows which
-        vessels were there, at what speed, and what they were carrying.</p>
-        <ul>
-          <li>Live vessel picture from AIS, with per-vessel risk scoring</li>
-          <li>Coastal cameras read automatically for vessels and surface anomalies</li>
-          <li>Incident log with time, location and evidence attached</li>
-          <li>Runs on the municipality's own servers</li>
-        </ul></div>
-
-      <div class="s"><div class="n">Built</div>
-        <h3>Excavation tracking, mobile</h3>
-        <p>Water, gas and electricity open the same streets and the record of who opened what,
-        when, and whether it was restored properly lives in a folder of photographs nobody can
-        search. A field application records it at the point of work, and the difference between
-        two dates is measured from imagery.</p>
-        <ul>
-          <li>Mobile application for the field team, used at the excavation itself</li>
-          <li>New excavation detected and dated from repeat imagery</li>
-          <li>Restoration compared against the condition before the work</li>
-          <li>A record the coordination office can query</li>
-        </ul></div>
-    </div>
-  </section>
-
-  <section>
-    <h2>Also available to a municipality</h2>
-    <div class="sect">
-      <div class="s"><div class="n">Public space</div>
-        <h3>One operating picture</h3>
-        <p>Cameras, access points, alarms and patrols on one screen that classifies what it sees,
-        ranks it and sends the nearest unit. Built for a 303,000 m&#178; development in Dubai,
-        applied the same way to a district. Works with the cameras already installed.</p></div>
-      <div class="s"><div class="n">Practical</div>
-        <h3>No new hardware, no obligation to fly</h3>
-        <p>Most of this runs on imagery the municipality already produces: existing cameras,
-        contractor photographs taken for progress payments, surveys already being flown. Where
-        flights are needed they are carried out by the municipality or by a licensed local
-        operator. We supply the software and the reporting.</p></div>
-    </div>
+    <h2>Two things that make this practical</h2>
+    <div class="lead">You do not buy hardware, and you are not obliged to fly.</div>
+    <p class="sub">Most of this runs on imagery the municipality already produces: cameras
+    already installed, contractor photographs taken for progress payments, surveys already being
+    flown. Where flights are needed they are carried out by the municipality or by a licensed
+    local operator. We supply the software and the reporting. Everything can run inside the
+    institution, offline, with role-based access and a dated, exportable report from every run.</p>
   </section>
 
   <section>
     <h2>References</h2>
-    <div class="refl">
-      <div class="rf"><div class="t">Dubai Municipality</div><span class="st">In delivery</span>
+    <div class="refs">
+      <div class="rf"><div class="t">Dubai Municipality</div>
         <div class="d">Coastal monitoring, delivered with our local partner in the UAE, against
         numeric acceptance criteria agreed in the tender.</div></div>
-      <div class="rf"><div class="t">İzmir Metropolitan Municipality</div><span class="st">Built</span>
+      <div class="rf"><div class="t">İzmir Metropolitan Municipality</div>
         <div class="d">Bay pollution monitoring and excavation tracking, both built for the
         metropolitan municipality of our own city.</div></div>
-      <div class="rf"><div class="t">303,000 m&#178; development, Dubai</div><span class="st">Built</span>
+      <div class="rf"><div class="t">303,000 m&#178; development, Dubai</div>
         <div class="d">Security and operations platform at district scale, nine modules in one
         screen.</div></div>
-      <div class="rf"><div class="t">Türkiye Petrolleri</div><span class="st">Delivered</span>
+      <div class="rf"><div class="t">Türkiye Petrolleri</div>
         <div class="d">Work with the Turkish national oil company.</div></div>
     </div>
   </section>
@@ -256,6 +206,12 @@
       <a href="mailto:serdarbatkan@bbateknoloji.com">serdarbatkan@bbateknoloji.com</a>
     </div>
   </div>
+
 </div>
-<footer><div class="wrap">BBA Technology &middot; İzmir, Türkiye &middot; NCAGE TN069 &middot; AI software, autonomous systems, computer vision</div></footer>
-</body></html>
+
+<footer><div class="wrap">
+  BBA Technology &middot; İzmir, Türkiye &middot; NCAGE TN069 &middot; AI software, autonomous systems, computer vision
+</div></footer>
+
+</body>
+</html>
